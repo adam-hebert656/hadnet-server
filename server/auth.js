@@ -25,7 +25,11 @@ router.post('/login', bodyParser.json(), (req, res) => {
   const userObj = {};
   validateWithFacebook(req.body.accessToken)
     .then((response) => {
-      _.extend(userObj, response);
+      userObj = {
+        email: response.email,
+        display_name: response.name,
+        id_facebook: response.id
+      }
       console.log("New User:", userObj);
     })
     .catch((error) => {
