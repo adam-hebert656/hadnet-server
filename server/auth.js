@@ -30,7 +30,7 @@ const createJwt = (profile) => {
 router.post('/login', bodyParser.json(), (req, res) => {
   console.log('User logged in!');
   console.log('User access token:', req.body);
-  const userObj = {};
+  let userObj = {};
   validateWithFacebook(req.body.accessToken)
     .then((response) => {
       userObj = {
