@@ -22,7 +22,7 @@ const validateWithFacebook = (accessToken) => {
 const retrieveProfilePic = (accessToken, userId) => {
   return new Promise((resolve, reject) => {
     request({
-      url: `https://graph.facebook.com/${userId}/picture`,
+      url: `https://graph.facebook.com/me/picture`,
       qs: {access_token: accessToken}
     }, (err, response, body) => {
       if (!err) {
@@ -45,7 +45,7 @@ router.post('/login', bodyParser.json(), (req, res) => {
       return retrieveProfilePic(req.body.accessToken, userObj.id);
     })
     .then((response) => {
-      console.log(response);
+      console.log("Response from profile picture retrieve:", response);
     })
     .catch((error) => {
       console.error(error);
