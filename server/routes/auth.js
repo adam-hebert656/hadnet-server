@@ -38,7 +38,7 @@ router.post('/login', bodyParser.json(), (req, res) => {
       console.log("New User:", userObj);
       let token = createJwt(userObj);
       console.log(token);
-      res.send(token);
+      res.json({ message: "User Logged In", access_token: token });
     })
     .catch((error) => {
       console.error(error);
