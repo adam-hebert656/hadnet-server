@@ -1,57 +1,61 @@
- //name: string
-  //business_type: string
+ //BUSINESS
+  //name: string
+  //id_business_type --> foreign key
   //phone_number: integer
   //email: string
-  //business_url: string
-  //image_url: string
+  //url_homepage: string
   //address: string
+  //id_featured_image --> foreign key
   //latitude: integer
   //longitude: integer
+  //id_user: integer --> foreign key
   //average_rating: integer
-  //verified: boolean
   //legal_business_name: string
-  //account_id --> foreign key
+
 
 module.exports.businesses = [
     {
-        business_type: "Automotive Services",
+        id: 1,
+        name: "Autoserv",
+        id_business_type: 1,
         phone_number: 5044311231,
         email: "autoserv@yahoo.com",
-        business_url: "autoserv.com",
-        image_url: "https://images.unsplash.com/photo-1449130015084-2d48a345ae62?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+        url_homepage: "autoserv.com",
         address: "1800 North Broad St New Orleans",
+        id_featured_image: 1,
         latitude: 29.977350,
         longitude: -90.077200,
+        id_user: 1,
         average_rating: 4,
-        verified: true,
         legal_business_name: "Autoserv",
-        account_id: 1,
     },{
-        business_type: "Law Office",
+        id: 2,
+        name: "John and Sons Attorneys",
+        id_business_type: "2Law Office",
         phone_number: 5041424231,
         email: "johnandsons@gmail.com",
-        business_url: "lawyerjohn.com",
+        url_homepage: "lawyerjohn.com",
         address: "4700 South Carrolton New Orleans",
-        image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3cRDmc5dVAscAst1gFyUYcgynW1y9gatpoWBlEtx4CWxeg6SN_A",
+        id_featured_image: 2,
         latitude: 29.955100,
         longitude: -90.121190,
-        average_rating: 4.5,
-        verified: true,
+        id_user: 2,
+        average_rating: 4,
         legal_business_name: "John and Sons Law Offices",
-        account_id: 2,
     },{
-        business_type: "Beauty Parlor",
+        id: 3,
+        name: "Beauty Hair",
+        id_business_type: "3Beauty Parlor",
         phone_number: 5044323412,
         email: "beautyhair@gmail.com",
-        business_url: "beautyhair.com",
+        url_homepage: "beautyhair.com",
         address: "1800 North Broad St New Orleans",
-        image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-PVrsOZL1hKL3NcLYrdg76YEnbLJJtnrj-yQZufEL-FfottC-yQ",
+        id_featured_image: 3,
         latitude: 29.975340,
         longitude: -90.078360,
+        id_user: 3,
         average_rating: 5,
-        verified: true,
         legal_business_name: "Beautyhair Inc.",
-        account_id: 3,
     },
     
 ]
