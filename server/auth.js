@@ -26,6 +26,7 @@ const retrieveProfilePic = (accessToken, userId) => {
       qs: {access_token: accessToken}
     }, (err, response, body) => {
       if (!err) {
+        console.log("Response from retrieveProfilePic:", response)
         console.log("Body from retrieveProfilePic:", body)
         resolve(JSON.parse(body));
       } else {
