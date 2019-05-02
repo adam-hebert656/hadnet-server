@@ -27,8 +27,6 @@ const createJwt = (profile) => {
 }
 
 router.post('/login', bodyParser.json(), (req, res) => {
-  console.log('User logged in!');
-  console.log('User access token:', req.body);
   let userObj = {};
   validateWithFacebook(req.body.accessToken)
     .then((response) => {
@@ -45,6 +43,11 @@ router.post('/login', bodyParser.json(), (req, res) => {
     .catch((error) => {
       console.error(error);
     })
+})
+
+router.get('/test', (req, res) => {
+  console.log(req);
+  res.sendStatus(200);
 })
 
 
