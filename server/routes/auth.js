@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const bodyParser = require('body-parser');
 const request = require('request');
-const _ = require('lodash');
 const jwt = require('jsonwebtoken');
 
 const validateWithFacebook = (accessToken) => {
@@ -39,7 +38,9 @@ router.post('/login', bodyParser.json(), (req, res) => {
         id_facebook: response.id
       }
       console.log("New User:", userObj);
-      res.send(createJwt(userObj));
+      let token = createJwt(userObj);
+      console.log(token);
+      res.send(token);
     })
     .catch((error) => {
       console.error(error);
