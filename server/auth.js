@@ -2,6 +2,7 @@ const router = require('express').Router();
 const bodyParser = require('body-parser');
 const request = require('request');
 const _ = require('lodash');
+const jwt = require('jsonwebtoken');
 
 const validateWithFacebook = (accessToken) => {
   return new Promise((resolve, reject) => {
@@ -19,6 +20,13 @@ const validateWithFacebook = (accessToken) => {
   })
 }
 
+const createJwt = (profile) => {
+  return jwt.sign(profile, 'papawatzkesucks', {
+    expiresIn: "6h",
+    issuer: 'Hadnet'
+  });
+}
+
 router.post('/login', bodyParser.json(), (req, res) => {
   console.log('User logged in!');
   console.log('User access token:', req.body);
@@ -31,6 +39,7 @@ router.post('/login', bodyParser.json(), (req, res) => {
         id_facebook: response.id
       }
       console.log("New User:", userObj);
+      res.send(createJwt(userObj));
     })
     .catch((error) => {
       console.error(error);
